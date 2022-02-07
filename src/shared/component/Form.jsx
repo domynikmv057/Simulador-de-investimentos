@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/Api";
+import { OperationButton } from "./Buttons/OperationButton.jsx";
 
 export const Formularios = () => {
   const [nomes, setNomes] = useState([]);
+  const [operation, setOperation] = useState("bruto"); //uso este estate pare receber do filho OperationButton o valor da operação
+
   useEffect(() => {
     api.get("indicadores").then((response) => {
       setNomes(response.data);
@@ -12,7 +15,10 @@ export const Formularios = () => {
 
   return (
     <div>
-      <h1>{nomes[1]?.valor}</h1>
+      <h2>Simulador</h2>
+      <p>Rendimento I</p>
+      <OperationButton setOp={setOperation} />
+      <h1>{operation}</h1>
     </div>
   );
 };
