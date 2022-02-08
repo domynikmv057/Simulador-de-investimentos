@@ -6,4 +6,6 @@
 .css-1gjgmky-MuiToggleButtonGroup-root {
   border: 1px solid black;
   color: black;
+  border-radius: 10px !important;
+  overflow: hidden !important;
 }

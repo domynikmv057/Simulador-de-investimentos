@@ -3,7 +3,7 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import "./OperationButton.css";
 import { useState } from "react";
 
-export const OperationButton = ({ setOp }) => {
+export const RendimentoButton = ({ setOp }) => {
   const [alignment, setAlignment] = useState("bruto");
 
   const handleChange = (event, newAlignment) => {

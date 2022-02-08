@@ -1,0 +1,59 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.main-container section {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin-right: 20px;
+}
+
+.form-input-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.operation-left-button {
+  align-self: center;
+}
+
+.right-form-container span h1,
+p {
+  padding: 10px 0;
+}
+.space-element {
+  margin-right: 50px;
+}
+
+.riht-button-span {
+  margin-left: 30px;
+}
+
+.riht-button-span p {
+  padding-top: 35px;
+}
+
+.botton-buttons button {
+  width: 200px;
+  height: 50px;
+  margin: 25px 0px 25px 25px;
+  border-radius: 10px;
+  border: 1px solid black;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: white;
+}
+
+.botton-buttons button:disabled {
+  border: none;
+  background-color: #969696;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: row;
+}
