@@ -16,14 +16,11 @@
   flex-direction: column;
 }
 
-.operation-left-button {
-  align-self: center;
-}
-
 .right-form-container span h1,
 p {
   padding: 10px 0;
 }
+
 .space-element {
   margin-right: 50px;
 }
@@ -39,7 +36,7 @@ p {
 .botton-buttons button {
   width: 200px;
   height: 50px;
-  margin: 25px 0px 25px 25px;
+  margin: 25px 20px 0px 0px;
   border-radius: 10px;
   border: 1px solid black;
   color: black;
@@ -54,6 +51,11 @@ p {
 }
 
 .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-camp {
   display: flex;
   flex-direction: row;
 }
