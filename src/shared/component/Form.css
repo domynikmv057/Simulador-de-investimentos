@@ -68,3 +68,21 @@ p {
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 600px) {
+  .main-container {
+    flex-wrap: wrap;
+  }
+
+  .main-container section {
+    flex-wrap: wrap;
+  }
+
+  .riht-button-span {
+    margin-left: 0;
+  }
+
+  .input-camp {
+    flex-wrap: wrap;
+  }
+}

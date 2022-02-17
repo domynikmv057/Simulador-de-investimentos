@@ -12,7 +12,7 @@
 
 .simulation-list li {
   min-width: 150px;
-  width: 25% !important;
+  width: 25%;
   align-items: center;
   text-align: center;
   margin: 20px;
@@ -35,4 +35,10 @@
 
 .green-style {
   color: #7bbc70;
+}
+
+@media (max-width: 600px) {
+  .simulation-list li {
+    width: 100%;
+  }
 }
