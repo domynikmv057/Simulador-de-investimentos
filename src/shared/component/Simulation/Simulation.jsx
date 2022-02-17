@@ -1,9 +1,17 @@
+//  Sobre o Codigo...
+// ...
+// Esse é o componente responsável pela simulação, primeiramente uso um useEffect para
+// pegar da api os dados que eu quero, como explicado na parte de IndexacaoButton.jsx
+// eu guardava a informação do valor escolhido no botão, e a envio para este componente
+// então eu pego essa informação e uso ela para pegar o tipo de simulação escolhido LINHA: 20
+// após separa a simulação que eu queria da api eu a salvo em um estado e uso para montar
+// os cards da simulação.
+
 import { useEffect, useState } from "react";
 import { api } from "../../api/Api.js";
 import "./Simulation.css";
 
 export const Simulation = ({ indexacaoValue, rendimentoValue }) => {
-  const [simlationsApi, setSimlationsApi] = useState([]);
   const [selectedSimulation, setSelectedSimulation] = useState([]);
   useEffect(() => {
     api.get("simulacoes").then((response) => {
@@ -16,15 +24,10 @@ export const Simulation = ({ indexacaoValue, rendimentoValue }) => {
           setSelectedSimulation(item);
         }
       });
-      setSimlationsApi(respData);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const OperationChose = () => {
-    console.log(selectedSimulation);
-    console.log(simlationsApi);
-  };
   return (
     <section className="main-section-simulation">
       <h2>Resultado da Simulação</h2>

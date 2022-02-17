@@ -1,3 +1,41 @@
+//  Sobre o Codigo...
+// ...
+// Este é meu componente principal, aqui está estruturado todo meu código
+// ...
+// useEffect: Linha: 74
+// Começo usando um useEfect para pegar da api os dados do CDI e IPCA, para usá-los nos inputs
+// também guardo estes dados no state [ nome ] para que possam ser usados mais tarde na função [ clearForm ]
+// guardo essa informação no state [ formValues ] que é o state que eu uso para salvar os valores dos inputs,
+// ...
+// handleInputChange: Linha: 89
+// esta função eu uso para mudar e salvar os valores dos meus inputs, e também para verificar se este valor é
+// um número ou não, eu salvo o valor do input no state [ formValues ] e caso ele seja um número
+// defino o state [ erroLaybel ] para falso, se não for numero defino para verdadeiro.
+//...
+//handleSubmit: Linha: 101
+// esta é a função que define o [ simulationState ] para verdadeiro, o que por sua vez faz com que o componente
+// Simulation.jsx seja renderizado.
+//  ...
+//validateButton: Linha: 105
+//Esta é a função responsável por liberar o botão de Simulação, ela percorre o objeto [ formValues ], verificando
+//se os valores dos inputs estão vazios, se estiverem ela retorna 'verdadeiro' o que desabilita o botão, caso
+//o input não estiver vazio ela percorre o objeto [ erroLaybel ] verificando se o valor de input dele esta definido
+//como verdadeiro( o que aponta que o input tem uma letra), caso seja verdadeiro, a função também retorna verdadeiro
+//desabilitando o botão, se nenhuma dessas condições for verdadeira, ele sai do 'for', e retorna falso liberando
+//o botão.
+//...
+//clearForm: Linha: 120
+//esta função retesa os valores dos inputs no [ formValues ], [ erroLaybel ] e [ simulationState ]
+// limpando o formulário o input de erro, e sumindo com o componente de simulação
+//...
+//return: Linha: 134
+//aqui estão meus inputs, usei o MaterialUI para agilizar o processo de estilização dos componentes
+//...
+//simulationState: Linha: 291
+//aqui é onde eu chamo o componente Simulation.jsx, porem eu uso um ternário para verificar o state
+//[ simulationState ], para renderizar ou não o componente, o valor de [ simulationState ] só se torna
+//verdadeiro quando clicamos no botão simular, que só é liberado quando todos os inputs são preenchidos.
+
 import { useEffect, useState } from "react";
 import { api } from "../api/Api";
 import { RendimentoButton } from "./Buttons/RendimentoButton.jsx";
@@ -12,18 +50,26 @@ import "./Form.css";
 
 export const Formularios = () => {
   const [nomes, setNomes] = useState([]);
-  const [rendimentoValue, setRendimentoValue] = useState("bruto"); //uso este estate pare receber do filho RendimentoButton o valor da operação
+  //uso este estate para salvar os dados da api
+  const [rendimentoValue, setRendimentoValue] = useState("bruto");
+  //uso este estate para receber do filho RendimentoButton o valor da operação
   const [indexacaoValue, setIdexacaoValue] = useState("pos");
+  //uso este estate para receber do filho IndexaçaoButton o valor da operação
   const [erroLaybel, setErroLaybel] = useState([]);
+  //uso este estate para verificar se os valores do input é um numero ou nao.
   const [cdi, setCdi] = useState(0);
+  //dado vindo da api
   const [ipca, setIpca] = useState(0);
+  //dado vindo da api
   const [simulationState, setSimulationState] = useState(false);
+  //estado que verifica se deve ou nao ser renderizado o componente Simulation Simulation.jsx
   const [formValues, setFormValues] = useState({
     aporteInicial: "",
     aporteMensal: "",
     prazoMes: "",
     rentabilidade: "",
   });
+  //estado que armazena os valores dos inputs
 
   useEffect(() => {
     api.get("indicadores").then((response) => {
@@ -39,6 +85,7 @@ export const Formularios = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
