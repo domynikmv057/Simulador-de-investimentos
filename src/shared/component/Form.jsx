@@ -35,6 +35,9 @@
 //aqui é onde eu chamo o componente Simulation.jsx, porem eu uso um ternário para verificar o state
 //[ simulationState ], para renderizar ou não o componente, o valor de [ simulationState ] só se torna
 //verdadeiro quando clicamos no botão simular, que só é liberado quando todos os inputs são preenchidos.
+//...
+//em  helperText uma variável dos meus inputs, uso um ternário, para que ela verifique o input correspondente
+//esta com algum erro em [ erroLaybel ] caso esteja ela exibe a mensagem de erro, se não ela não exibe nada.
 
 import { useEffect, useState } from "react";
 import { api } from "../api/Api";
