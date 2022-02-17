@@ -31,29 +31,29 @@ export const Simulation = ({ indexacaoValue, rendimentoValue }) => {
       <ul className="simulation-list">
         <li>
           <h3>Valor Final Bruto</h3>
-          <p>R${selectedSimulation.valorFinalBruto}</p>
+          <p>R$ {selectedSimulation.valorFinalBruto}</p>
         </li>
         <li>
           <h3>Alíquota do IR</h3>
-          <p>{selectedSimulation.aliquotaIR}%</p>
+          <p>{selectedSimulation.aliquotaIR} %</p>
         </li>
         <li>
           <h3>Valor Pago em IR</h3>
-          <p>R${selectedSimulation.valorPagoIR}</p>
+          <p>R$ {selectedSimulation.valorPagoIR}</p>
         </li>
         <li>
           <h3>Valor Final Líquido</h3>
           <p className="green-style">
-            R${selectedSimulation.valorFinalLiquido}
+            R$ {selectedSimulation.valorFinalLiquido}
           </p>
         </li>
         <li>
           <h3>Valor Total Investido</h3>
-          <p>R${selectedSimulation.valorTotalInvestido}</p>
+          <p>R$ {selectedSimulation.valorTotalInvestido}</p>
         </li>
         <li>
           <h3>Ganho Líquido</h3>
-          <p className="green-style">R${selectedSimulation.ganhoLiquido}</p>
+          <p className="green-style">R$ {selectedSimulation.ganhoLiquido}</p>
         </li>
       </ul>
     </section>

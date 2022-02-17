@@ -55,6 +55,21 @@ export const Formularios = () => {
     setSimulationState(true);
   };
 
+  const validateButton = () => {
+    for (const [key, value] of Object.entries(formValues)) {
+      if (value === "") {
+        return true;
+      } else {
+        for (const [chave, valor] of Object.entries(erroLaybel)) {
+          if (valor) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  };
+
   const clearForm = (e) => {
     e.preventDefault();
     setFormValues({
@@ -115,7 +130,6 @@ export const Formularios = () => {
                   name={"aporteInicial"}
                   value={formValues.aporteInicial}
                   error={erroLaybel.aporteInicial}
-                  defaultValue={0}
                   helperText={
                     erroLaybel.aporteInicial ? "Aporte deve ser um número" : ""
                   }
@@ -218,7 +232,7 @@ export const Formularios = () => {
                 onClick={(e) => {
                   handleSubmit();
                 }}
-                disabled={false}
+                disabled={validateButton()}
               >
                 Simular
               </button>
