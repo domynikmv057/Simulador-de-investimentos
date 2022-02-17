@@ -1,6 +1,10 @@
+* {
+  font-family: "Open Sans Condensed", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
 .main-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
 }
 
@@ -42,7 +46,7 @@ p {
   color: black;
   font-weight: bold;
   font-size: 1.2rem;
-  background-color: white;
+  background-color: #efefef;
 }
 
 .botton-buttons button:disabled {
@@ -58,4 +62,9 @@ p {
 .input-camp {
   display: flex;
   flex-direction: row;
+}
+
+.information-style {
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,0 +1,38 @@
+.main-section-simulation {
+  display: flex;
+  flex-direction: column !important;
+}
+
+.simulation-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.simulation-list li {
+  min-width: 150px;
+  width: 25% !important;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  background-color: white;
+}
+
+.simulation-list li h3 {
+  margin-bottom: 15px;
+}
+
+.simulation-list li p {
+  font-weight: bold;
+}
+
+.simulation-list li {
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(54, 54, 54, 1);
+  -moz-box-shadow: 0px 0px 10px 1px rgba(54, 54, 54, 1);
+  box-shadow: 0px 0px 10px 1px rgba(54, 54, 54, 1);
+}
+
+.green-style {
+  color: #7bbc70;
+}

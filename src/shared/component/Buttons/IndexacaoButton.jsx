@@ -24,7 +24,7 @@ export const IndexacaoButton = ({ setOp }) => {
       <ToggleButton value="pos">
         {alignment === "pos" ? "✓ POS" : "POS"}
       </ToggleButton>
-      <ToggleButton value="fixado">
+      <ToggleButton value="ipca">
         {alignment === "fixado" ? "✓ FIXADO" : "FIXADO"}
       </ToggleButton>
     </ToggleButtonGroup>
