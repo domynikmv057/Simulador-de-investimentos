@@ -2,7 +2,7 @@
 // ...
 // Este é meu componente principal, aqui está estruturado todo meu código
 // ...
-// useEffect: Linha: 74
+// useEffect: Linha: 75
 // Começo usando um useEfect para pegar da api os dados do CDI e IPCA, para usá-los nos inputs
 // também guardo estes dados no state [ nome ] para que possam ser usados mais tarde na função [ clearForm ]
 // guardo essa informação no state [ formValues ] que é o state que eu uso para salvar os valores dos inputs,
@@ -28,7 +28,7 @@
 //esta função retesa os valores dos inputs no [ formValues ], [ erroLaybel ] e [ simulationState ]
 // limpando o formulário o input de erro, e sumindo com o componente de simulação
 //...
-//return: Linha: 134
+//return: Linha: 133
 //aqui estão meus inputs, usei o MaterialUI para agilizar o processo de estilização dos componentes
 //...
 //simulationState: Linha: 291
@@ -52,8 +52,6 @@ import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 import "./Form.css";
 
 export const Formularios = () => {
-  const [nomes, setNomes] = useState([]);
-  //uso este estate para salvar os dados da api
   const [rendimentoValue, setRendimentoValue] = useState("bruto");
   //uso este estate para receber do filho RendimentoButton o valor da operação
   const [indexacaoValue, setIdexacaoValue] = useState("pos");
@@ -77,7 +75,6 @@ export const Formularios = () => {
   useEffect(() => {
     api.get("indicadores").then((response) => {
       const respData = response.data;
-      setNomes(respData);
       setCdi(respData[0].valor);
       setIpca(respData[1].valor);
       setFormValues({
@@ -121,14 +118,13 @@ export const Formularios = () => {
   };
 
   const clearForm = (e) => {
-    e.preventDefault();
     setFormValues({
       aporteInicial: "",
       aporteMensal: "",
       prazoMes: "",
       rentabilidade: "",
-      [nomes[0].nome]: nomes[0].valor,
-      [nomes[1].nome]: nomes[1].valor,
+      cdi: cdi,
+      ipca: ipca,
     });
     setErroLaybel([]);
     setSimulationState(false);
@@ -181,7 +177,7 @@ export const Formularios = () => {
                   value={formValues.aporteInicial}
                   error={erroLaybel.aporteInicial}
                   helperText={
-                    erroLaybel.aporteInicial ? "Aporte deve ser um número" : ""
+                    erroLaybel.aporteInicial ? "Aporte deve ser um número" : " "
                   }
                   onChange={(e) => {
                     handleInputChange(e);
@@ -197,7 +193,7 @@ export const Formularios = () => {
                   value={formValues.prazoMes}
                   error={erroLaybel.prazoMes}
                   helperText={
-                    erroLaybel.prazoMes ? "O Prazo deve ser um número" : ""
+                    erroLaybel.prazoMes ? "O Prazo deve ser um número" : " "
                   }
                   onChange={(e) => {
                     handleInputChange(e);
@@ -207,10 +203,10 @@ export const Formularios = () => {
                   id="standard-basic"
                   label="IPCA (ao ano)"
                   variant="standard"
-                  value={ipca}
+                  value={ipca + " %"}
                   error={erroLaybel.ipca}
                   helperText={
-                    erroLaybel.aporteInicial ? "O IPCA deve ser um número" : ""
+                    erroLaybel.aporteInicial ? "O IPCA deve ser um número" : " "
                   }
                   name={"ipcaAno"}
                 />
@@ -234,7 +230,7 @@ export const Formularios = () => {
                   name={"aporteMensal"}
                   error={erroLaybel.aporteMensal}
                   helperText={
-                    erroLaybel.aporteMensal ? "Aporte deve ser um número" : ""
+                    erroLaybel.aporteMensal ? "Aporte deve ser um número" : " "
                   }
                   value={formValues.aporteMensal}
                   onChange={(e) => {
@@ -252,7 +248,7 @@ export const Formularios = () => {
                   helperText={
                     erroLaybel.rentabilidade
                       ? "A rentabilidade deve ser um número"
-                      : ""
+                      : " "
                   }
                   onChange={(e) => {
                     handleInputChange(e);
@@ -262,7 +258,7 @@ export const Formularios = () => {
                   id="standard-basic"
                   label="CDI (ao ano)"
                   variant="standard"
-                  value={cdi}
+                  value={cdi + " %"}
                   error={erroLaybel.cdi}
                   helperText={erroLaybel.cdi ? "O CDI deve ser um número" : ""}
                   name={"cdiAno"}
@@ -279,6 +275,7 @@ export const Formularios = () => {
                 Limpar campos
               </button>
               <button
+                className="simulation-button"
                 onClick={(e) => {
                   handleSubmit();
                 }}

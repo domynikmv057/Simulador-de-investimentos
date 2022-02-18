@@ -37,23 +37,6 @@ p {
   padding-top: 35px;
 }
 
-.botton-buttons button {
-  width: 200px;
-  height: 50px;
-  margin: 25px 20px 0px 0px;
-  border-radius: 10px;
-  border: 1px solid black;
-  color: black;
-  font-weight: bold;
-  font-size: 1.2rem;
-  background-color: #efefef;
-}
-
-.botton-buttons button:disabled {
-  border: none;
-  background-color: #969696;
-}
-
 .form-group {
   display: flex;
   flex-direction: column;
@@ -85,4 +68,30 @@ p {
   .input-camp {
     flex-wrap: wrap;
   }
+}
+
+.simulation-button {
+  background-color: #ed8e53 !important;
+  border: none !important;
+}
+.simulation-button:disabled {
+  background-color: #969696 !important;
+  border: none !important;
+}
+
+.botton-buttons button {
+  width: 200px;
+  height: 50px;
+  margin: 25px 20px 0px 0px;
+  border-radius: 10px;
+  border: 1px solid black;
+  color: black;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background-color: #efefef;
+}
+
+.botton-buttons button:disabled {
+  border: none;
+  background-color: #969696;
 }
